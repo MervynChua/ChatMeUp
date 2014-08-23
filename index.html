@@ -14,37 +14,15 @@
     <input type='text' id='nameInput' placeholder='Name' color='green'>
     <input type='text' id='messageInput' placeholder='Message'>
     <script>
-            Stamp = new Date();
-			year = Stamp.getYear();
-			if (year < 2000) year = 1900 + year;
-			var timestamp = document.write('<font size="2" face="Arial"><B>' + (Stamp.getMonth() + 1) +"/"+Stamp.getDate()+ "/"+ year + '</B></font><BR>');
-			var Hours;
-			var Mins;
-			var Time;
-			Hours = Stamp.getHours();
-			if (Hours >= 12) {
-			Time = " P.M.";
-			}
-			else {
-			Time = " A.M.";
-			}
-			if (Hours > 12) {
-			Hours -= 12;
-            }
-            if (Hours == 0) {
-            Hours = 12;
-            }
-            Mins = Stamp.getMinutes();
-            if (Mins < 10) {
-            Mins = "0" + Mins;
-            }	
-      var timestamp = document.write('<font size="2" face="Arial"><B>' + Hours + ":" + Mins + Time + '</B></font>');
+           
+      
       var myDataRef = new Firebase('https://wqzsi9rqk0m.firebaseio-demo.com/');
       
       $('#messageInput').keypress(function (e) {
         if (e.keyCode == 13) {
           var name = $('#nameInput').val();
-          var text = $('#messageInput').val(); 
+          var text = $('#messageInput').val();
+          
           myDataRef.push({name: name, text: text});
           $('#messageInput').val('');
         }
@@ -54,7 +32,7 @@
         displayChatMessage(message.name, message.text);
       });
       function displayChatMessage(name, text) {
-        $('<div/>').text(text).prepend($('<em/>').text(timestamp+name+': ')).appendTo($('#messagesDiv'));
+        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
         $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
       };
       </script>
