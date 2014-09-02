@@ -4,28 +4,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/1.0.15/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
+    <title>Jobs Chat</title>
   </head>
 
   <body ng-controller="MyController" bgcolor="black">
 
     <!-- CHAT MARKUP -->
-    <div class='example-chat l-demo-container'>
-      <header style="color=white">Chat Demo for The Insider</header>
-
+    <div class='example-chat l-demo-container' align="middle">
+      <header><font color="white" size="50px">Chat Demo for The Insider</font>
+      <br><font color="#ff6666" size="5px">Limited to 3 messages only</font>  
+      </header>
+      <br><br>
       <div class='example-chat-toolbar'>
-        <label for='nameInput'>Username:</label>
-        <input ng-model='name' type='text' id='nameInput' placeholder='enter a username...'>
+        <label for='nameInput'><font color="white" size="5px">Username:</font></label>
+        <input ng-model='name' type='text' id='nameInput' placeholder='Enter a name (Optional)' size="30px">
       </div>
 
       <ul id='example-messages' class='example-chat-messages'>
         <li ng-repeat='msg in messages'>
-          <strong class='example-chat-username'>{{msg.from}}</strong>
-          {{msg.body}}
+          <font color="#ff6666"><strong class='example-chat-username' color="#ff6666">{{msg.from}}</strong></font><font color="white">
+          {{msg.body}}</font>
         </li>
       </ul>
 
       <footer>
-        <input ng-model='msg' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Type a message...'>
+        <input ng-model='msg' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Type a message...' size="50px">
       </footer>
     </div>
 
