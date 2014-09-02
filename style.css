@@ -1,0 +1,68 @@
+#chart {
+width: 920px;
+height: 570px;
+background: #bbb;
+margin: 1px auto;
+position: relative;
+	-webkit-animation-fill-mode: forwards;  /* Safari and Chrome */
+    animation: mymove 13s;
+    animation-iteration-count: 12;
+
+}
+
+text {
+	pointer-events: none;
+}
+
+.grandparent text { /* header text */
+	font-weight: bold;
+	font-size: large;
+	text-align: justify;	
+	font-family: "Open Sans", Helvetica, Arial, sans-serif; 
+}
+
+rect {
+fill: none;
+stroke: #fff;
+}
+
+rect.parent,
+	.grandparent rect {
+		stroke-width: 4px;
+	}
+
+.grandparent rect {
+fill: #fff;
+}
+rect.label {
+            stroke: #000000;
+            fill: #000000;
+            stroke-width: 0;
+            margin: 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+.children rect.parent,
+	.grandparent rect {
+cursor: pointer;
+	}
+
+rect.parent {
+	pointer-events: all; 
+}
+
+.children:hover rect.child,
+	.grandparent:hover rect {
+fill: #aaa;
+	}
+
+.textdiv { /* text in the boxes */
+	font-size: medium;	
+	fill: #000000;
+	padding: 10px;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif; 
+	text-align:center;
+	color:#ffffff;
+
+	}
